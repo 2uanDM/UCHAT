@@ -1,0 +1,305 @@
+<head>
+    <title>Kết quả học tập </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="../css/default.css" type="text/css" />
+    <script type="text/javascript" src="../Js/toolBarButton.js"></script>
+    <script type="text/javascript" src="../_ScriptLibrary/alerts.js"></script>
+    <script type="text/javascript" src="../_ScriptLibrary/tabs.js"></script>
+    <script type="text/javascript" src="../_ScriptLibrary/validators.js"></script>
+</head>
+
+
+<style>
+    .clsListHeader {
+        background-color: rgb(239, 239, 239);
+        height: 25;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+    }
+</style>
+<script type="text/javascript">
+    //Xem theo mã sinh viên
+    function submit_d() {
+
+        document.getElementById("frm").submit();
+    }
+    function selStdCode_onKeyDown(e) {
+        if (window.event)
+            e = window.event;
+        var key = e.keyCode;
+        if (key == 13)
+            document.getElementById("frm").submit();
+    }
+
+    function cmdPrint_onclick() {
+        var numDivs = 5;
+        for (i = 0; i < numDivs; i++) {
+            if (document.all['divNoPrint' + i]) {
+                document.all['divNoPrint' + i].style.display = 'none';
+            }
+        }
+        window.print();
+        for (i = 0; i < numDivs; i++) {
+            if (document.all['divNoPrint' + i]) {
+                document.all['divNoPrint' + i].style.display = 'block';
+            }
+        }
+    }
+    function detailPoint(x, y, z, Term) {
+        w = 450;
+        h = 150;
+        LeftPosition = (screen.width) ? (screen.width - w) / 2 : 0;
+        TopPosition = (screen.height) ? (screen.height - h) / 2 : 0;
+        var windowFearture = "left=10,toolbar=0,location=0";
+        var winHdl = window.open("detailPoint.asp?id=" + x + "&val=" + y + "&StdID=" + z + "&Term=" + Term, "Detail", windowFearture);
+    }
+</script>
+<body>
+    <form name="frm" id="frm" method="post">
+        <div id="divNoPrint0">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="" id="">
+                <tr>
+                    
+            </table>
+        </div>
+        <div id="divNoPrint2">
+            <table width="100%" style="margin: 10px 0" border="0" cellpadding="0" cellspacing="0" class="" id="">
+                <tr>
+                    <td width="77%">&nbsp;</td>
+                    <td class="none" align="right" width="auto">
+                        <label for="chkNCTDT" class="label-new">
+                            <input type="checkbox" name="chkNCTDT" id="chkNCTDT" value="1"  onClick="javascript: submit_d();">
+                            Xem cả những môn ngoài CTĐT
+
+                        </label>
+
+                    </td>
+                    <td width="auto" align="left" id="btnPrint" style="cursor: pointer;"><a class="btn-new" href="#" onClick="javascript:cmdPrint_onclick();">&nbsp;<img src="../../Themes/ice/icons/button_print.gif" align="absmiddle" width="16" height="20">&nbsp;&nbsp;In ấn</a></td>
+                    <script language="javascript">
+                        var btnPrint;
+                        btnPrint = document.getElementById("btnPrint"); createButton(btnPrint); btnPrint.setEnabled(true);
+                    </script>
+
+                </tr>
+            </table>
+        </div>
+        
+		<div id="thongbaoNoHP" style="color:red; font-weight:bold; "></div>
+        <div id="divList1" style="overflow: auto; width: 100%;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td align="CENTER" colspan="4" style="font-size: 13px;"><b>KẾT QUẢ HỌC TẬP &nbsp;&nbsp;</b></td>
+                </tr>
+                <tr>
+                    <td width="10%">&nbsp;</td>
+                    <td align="right"><b>Sinh viên: Chế Hạnh Ngân&nbsp;&nbsp;</b></td>
+                    <td align="right"><b>Mã số: 21040227&nbsp;&nbsp;</b></td>
+                    <td align="right" width="30%"><b>Lớp quản lý: QH.2021.F.1.E15.SP&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+                </tr>
+            </table>
+        </div>
+        <div id="divList2" style="overflow: hidden; width: 100%; height: 22px;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" class="clsListHeader" id="ListHeader" style="padding: 0; margin: 0;">
+                <tr height="22">
+                    <td align="center" width="5%" title="Số thứ tự"
+                        nowrap style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; border-right: 1px solid #ccc;"><b>STT</b></td>
+                    <td align="center" width="10%" title="Mã môn học" nowrap style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"><b>Mã MH</b></td>
+                    <td align="center" width="40%" title="Tên môn học" nowrap style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"><b>Môn Học</b></td>
+                    <td align="center" width="5%" title="Số TC" nowrap style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"><b>Số TC</b></td>
+                    <td align="center" width="10%" title="Điểm hệ 10" nowrap style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"><b>Điểm hệ 10</b></td>
+                    <td align="center" width="10%" title="Điểm hệ 4" nowrap style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"><b>Điểm chữ</b></td>
+                    <td align="center" width="10%" title="Điểm chữ" nowrap style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"><b>Điểm hệ 4</b></td>
+                    <td align="center" width="10%" title="Chi tiết" nowrap style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"><b>Chi tiết</b></td>
+                </tr>
+                <tr height="22">
+                    <td width="10%" title="Điểm kết luận" align="center" nowrap style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"></td>
+                    <td width="10%" align="center" title="Điểm hệ 4" nowrap style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"></td>
+                    <td width="10%" align="center" title="Điểm chữ " nowrap style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;"></td>
+                </tr>
+            </table>
+        </div>
+        <div id="divList3" style="height: 80%; overflow: auto; width: 100%;">
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr height = "25" bgcolor="#FFFFFF"><td colspan="4" align="left" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc; border-left:1px solid #ccc;" ><b>&nbsp;&nbsp;&nbsp;&nbsp;HỌC KỲ 2 - 2022-2023. MÃ HỌC KỲ 222</b></td><td colspan="14" align="right" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" ><b>&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;1</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG1001B</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Địa lý đại cương</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9.7</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('000060','9.7','00000029855','046');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;2</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;PHI1002</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Chủ nghĩa xã hội khoa học</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;2</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;8.5</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3.7</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('000350','8.5','00000029855','046');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;3</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;PSF3007</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tâm lý học</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;8.6</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3.7</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001016','8.6','00000029855','046');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;4</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4028</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 4A</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9.5</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001069','9.5','00000029855','046');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;5</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4029</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 4B</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;8.9</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3.7</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001071','8.9','00000029855','046');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;6</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4032</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 4C</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;8.5</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3.7</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001559','8.5','00000029855','046');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;7</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;FLF1010</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Trí tuệ cảm xúc và giao tiếp xã hội</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9.7</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001788','9.7','00000029855','046');" title="Chi tiết"></td>
+
+                    </tr><tr height = "25" bgcolor="#FFFFFF"><td colspan="4" align="left" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc; border-left:1px solid #ccc;" ><b>&nbsp;&nbsp;&nbsp;&nbsp;HỌC KỲ 1 - 2022-2023. MÃ HỌC KỲ 221</b></td><td colspan="14" align="right" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" ><b>&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;1</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;FLF1002</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Phương pháp luận nghiên cứu khoa học</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;2</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;8.3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;B+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3.5</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001006','8.3','00000029855','045');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;2</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4025</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 3A</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9.5</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001063','9.5','00000029855','045');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;3</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4026</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 3B</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001065','9','00000029855','045');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;4</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;VLF1053</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Việt thực hành</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;2</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;7.2</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;B</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001200','7.2','00000029855','045');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;5</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4031</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 3C</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;8.7</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3.7</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001549','8.7','00000029855','045');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;6</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;PEC1008</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Kinh tế chính trị Mác - Lê Nin</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;2</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;8</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;B+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3.5</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001633','8','00000029855','045');" title="Chi tiết"></td>
+
+                    </tr><tr height = "25" bgcolor="#FFFFFF"><td colspan="4" align="left" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc; border-left:1px solid #ccc;" ><b>&nbsp;&nbsp;&nbsp;&nbsp;HỌC KỲ 2 - 2021-2022. MÃ HỌC KỲ 212</b></td><td colspan="14" align="right" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" ><b>&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;1</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;PHI1006</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Triết học Mác -Lênin</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;8.2</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;B+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;3.5</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('000581','8.2','00000029855','043');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;2</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4023</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 2A</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;10</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001059','10','00000029855','043');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;3</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4024</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 2B</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;10</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001061','10','00000029855','043');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;4</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;FLF1007</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Công nghệ thông tin và truyền thông</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9.5</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001570','9.5','00000029855','043');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;5</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;FLF1407B</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Trung B1</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;5</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;Đạt</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001609','Đạt','00000029855','043');" title="Chi tiết"></td>
+
+                    </tr><tr height = "25" bgcolor="#FFFFFF"><td colspan="4" align="left" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc; border-left:1px solid #ccc;" ><b>&nbsp;&nbsp;&nbsp;&nbsp;HỌC KỲ 1 - 2021-2022. MÃ HỌC KỲ 211</b></td><td colspan="14" align="right" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" ><b>&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;1</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;VLF1052</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Nhập môn Việt ngữ học</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9.8</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('000683','9.8','00000029855','042');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;2</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4021</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 1A</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;10</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('000691','10','00000029855','042');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;3</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;ENG4022</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Tiếng Anh 1B</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;4</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;10</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('000692','10','00000029855','042');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;4</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;HIS1056</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Cơ sở văn hoá Việt Nam</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9.3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001453','9.3','00000029855','042');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20" ><td width="10%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;border-left:1px solid #ccc;" >&nbsp;&nbsp;5</td><td width="10%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Mã môn học" >&nbsp;&nbsp;FLF1008</td><td width="40%"  style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Môn học" >&nbsp;&nbsp;Kỹ năng học tập thành công bậc đại học</td><td width="5%" align="center" nowrap style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Số tín chỉ" >&nbsp;&nbsp;3</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;9.2</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;A+</td><td width="10%" nowrap align="center" style="border-bottom:1px solid #ccc; border-right:1px solid #ccc;" title="Điểm hệ 10 cuối cùng" >&nbsp;&nbsp;4</td>
+                    <td width="5%" nowrap align="center" style="border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">&nbsp;&nbsp;<img height="22" src="../../Themes/ice/icons/button_edit1.gif" onClick="detailPoint('001569','9.2','00000029855','042');" title="Chi tiết"></td>
+
+                    </tr><tr height = "20"><td width="5%" nowrap align="left" colspan = "12" >&nbsp;<b>Tổng tín chỉ: &nbsp;&nbsp;76</b></td></tr><tr height = "20" ><td width="5%" nowrap align="left" colspan = "12" >&nbsp;<b>Tổng tín chỉ tích lũy: &nbsp;&nbsp;71</b></td></tr><tr height = "20" ><td width="5%" nowrap align="left" colspan = "12" >&nbsp;<b>Điểm trung bình tích lũy hệ 4: &nbsp;&nbsp;3.85</b></td></tr>
+            </table>
+            
+        </div>
+
+
+        
+ <div id="divList2" style="overflow: hidden; width: 100%; ">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="clsListHeader" id="ListHeader" style="padding: 0; margin: 0;">
+		<tr height="22">
+			<td colspan="6" style=" background-color: rgb(9, 157, 94); color: rgb(255, 255, 255);" align="center">Xem chứng chỉ</td>
+		</tr>
+		<tr height="22">
+		   <td width="10%" align="center" title="" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">Trạng thái</td>
+			<td width="10%" align="center" title="Mã chứng chỉ" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">Mã CT</td>
+			<td width="25%" align="center" title="Tên chứng chỉ" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">Chứng chỉ</td>
+			<td width="20%" align="center" title="Mô tả" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">Mô tả</td>
+			<td width="15%" align="center" title="Số quyết định" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">Số QĐ</td>
+			<td width="15%" align="center" title="Ngày quyết định" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">Ngày QĐ</td>		
+		</tr>               
+	</table>
+   
+	 <table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding: 0; margin: 0;">
+
+    	<tr height="22">        	
+            <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;"> Đạt</td>
+			 <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;01</td>
+            <td width="25%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;Giáo dục thể chất</td>
+            <td width="20%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;GDTC</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				
+			</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				6/9/2022
+			</td>
+         
+		</tr>
+	
+    	<tr height="22">        	
+            <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;"> Đạt</td>
+			 <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;02</td>
+            <td width="25%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;Giáo dục quốc phòng</td>
+            <td width="20%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;GDQP</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				
+			</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				5/26/2022
+			</td>
+         
+		</tr>
+	
+    	<tr height="22">        	
+            <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;"> Chưa đạt</td>
+			 <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;03</td>
+            <td width="25%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;Kỹ năng mềm</td>
+            <td width="20%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;KNM</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				
+			</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				
+			</td>
+         
+		</tr>
+	
+    	<tr height="22">        	
+            <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;"> Chưa đạt</td>
+			 <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;04</td>
+            <td width="25%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;Chuẩn đầu ra NN2</td>
+            <td width="20%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;CDR NN2</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				
+			</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				
+			</td>
+         
+		</tr>
+	
+    	<tr height="22">        	
+            <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;"> Đạt</td>
+			 <td width="10%" align="center" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;05</td>
+            <td width="25%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;Chuẩn đầu ra C1</td>
+            <td width="20%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE;">&nbsp;&nbsp;CDR C1</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				1389
+			</td>
+			<td width="15%" nowrap style="border-bottom:1px solid #C6CFDE; border-right:1px solid #C6CFDE; text-align:center;">
+				9/15/2021
+			</td>
+         
+		</tr>
+	
+	</table>
+	
+</div>
+
+		<input type="hidden" id="hidNoHP" value="">
+    </form>
+</body>
+</html>
+<script language="javascript">
+
+ window.onload = function(){
+ 		var txtNoHP = document.getElementById("hidNoHP").value;
+		if(txtNoHP !="")
+		{
+            document.getElementById("thongbaoNoHP").innerHTML=txtNoHP;
+			document.getElementById("thongbaoNoHP").removeAttribute('disabled');
+		}
+      }
+</script>
