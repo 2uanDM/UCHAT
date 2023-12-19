@@ -21,11 +21,11 @@ data = session_state.get('data', None)
 
 if data is None:
     st.stop()
-    
+
 student_info = data['student_info']
 score_by_semester = data['score_by_semester']
 credits_info = data['credits_info']
-        
+
 st.write(f'Họ và tên: {student_info["name"]}')
 st.write(f'MSSV: {student_info["mssv"]}')
 
